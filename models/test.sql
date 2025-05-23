@@ -1,1 +1,4 @@
-  SELECT a  +  b FROM tbl;  
+  select a  +  b 
+
+  1 + b AS c
+  FROM tbl;  
