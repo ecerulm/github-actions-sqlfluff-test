@@ -27,7 +27,8 @@ jobs:
         id: lint-sql
         with:
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
+          reporter: github-pr-check
+          fail_on_error: true
           sqlfluff_version: "3.4.0"
           sqlfluff_command: "lint" # Or "lint"
           config: "${{ github.workspace }}/.sqlfluff"
