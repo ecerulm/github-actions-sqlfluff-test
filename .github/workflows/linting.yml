@@ -27,7 +27,7 @@ jobs:
           level: info
           reporter: github-check
           filter_mode: file
-          fail_on_error: false
+          fail_on_error: true
           sqlfluff_version: "3.4.0"
           sqlfluff_command: "lint" # Or "lint"
           config: "${{ github.workspace }}/.sqlfluff"
