@@ -12,6 +12,12 @@ jobs:
           pull-requests: write 
 
         steps:
+            - name: Print Pull Request URL
+              run: |
+                echo "The Pull Request URL is: ${{ github.event.pull_request.html_url }}"
+                echo "The Pull Request Number is: ${{ github.event.pull_request.number }}"
+                echo "The Pull Request event is: ${{ github.event.pull_request }}"
+
             - uses: actions/checkout@v4
             - run: pip install 'sqlfluff==3.4.0' 
             - run: git fetch --depth=1 origin main:main
@@ -19,10 +25,6 @@ jobs:
               run: |
                 sqlfluff lint -f github-annotation-native $(git diff --name-only ${{ github.base_ref }})
 
-            - name: Print Pull Request URL
-              run: |
-                echo "The Pull Request URL is: ${{ github.event.pull_request.html_url }}"
-                echo "The Pull Request Number is: ${{ github.event.pull_request.number }}"
 
 
             - name: Add a comment to the PR with the result
