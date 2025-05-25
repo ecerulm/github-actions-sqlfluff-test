@@ -1,1 +1,3 @@
-  select a  +  b FROM tbl;  
+SELECT 
+ a  +  b 
+FROM tbl;  
